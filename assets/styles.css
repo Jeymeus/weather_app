@@ -1,0 +1,29 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Lato', sans-serif;
+    color: #030303;
+    font-size: 16px;
+}
+
+.container-sm {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.custom-width {
+    width: 30%;
+}
+
+.display    {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.weather-icon {
+    width: 100px;
+    height: auto;
+}

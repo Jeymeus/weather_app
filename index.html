@@ -3,26 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="assets/reset.css">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Météo</title>
 </head>
 <body>
-    <style>
-        body {
-        background-color: #f8f9fa;
-    }
-    .container-sm {
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-top: 50px;
-    }
-    .custom-width {
-        width: 30%;
-    }
-</style>
+
     <section class="container-sm">
         <h1 class="mt-3 mb-3 text-center">La météo de votre ville</h1>
         <form id="weather">
@@ -33,6 +21,23 @@
             <button type="submit" class="btn btn-primary">Rechercher</button>
         </form>
     </section>
+
+    <section class="container-sm mt-5 mb-3">
+            <h2 class="mb-5">Conditions météorologiques actuelles</h2>
+            <h4 id="cityWeather"></h4>
+        <div class="display">
+            <img id="icon" class="weather-icon" src="" alt="Weather Icon">
+            <div class="card weatherreturn">
+                <div class="card-body">
+                    <div id="weatherData">
+                    <p id="country"></p>
+                    <p id="region" class="card-text"></p>
+                    <p id="condition" class="card-text"></p>
+                    <p id="temperature" class="card-text"></p>
+                    <p id="windSpeed" class="card-text"></p>
+                </div>
+            </div>
+        </div>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>   
 <script src="assets/main.js"></script> 
