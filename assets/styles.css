@@ -28,3 +28,8 @@ body {
     width: 100px;
     height: auto;
 }
+
+#cityName {
+    font-size: 24px;
+    font-weight: 700;
+}
