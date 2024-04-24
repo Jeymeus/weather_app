@@ -1,39 +1,30 @@
 const apiKey = "55865da6c618429f893115221242304";
 const baseUrl = "https://api.weatherapi.com/v1/current.json?key=" + apiKey;
 
-// Form submission
-document.getElementById("weatherForm").addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevent page reload
-  let cityInput = document.getElementById("city");
-  let cityValue = cityInput.value.trim(); // Remove leading and trailing spaces from input
 
-  // Verify if city input is valid
-  if (!/^[A-Za-z\s-]+$/.test(cityValue)) {
-    alert(
-      "Veuillez saisir uniquement des lettres (minuscules ou majuscules) pour la ville."
-    );
-    return;
-  } else {
-    getWeatherData(cityValue); // Call function to fetch weather data
+// Load configuration from config.json
+fetch("config.json")
+  .then((response) => response.json())
+  .then((config) => {
+    defaultCity = config.defaultCity; // Assigning the value of defaultCity outside of the callback function
+    getWeatherData(defaultCity); // Calling the getWeatherData function with the default city
     setInterval(function () {
-      getWeatherData(cityValue);
-    }, 3600000); // Update weather data every hour
-  }
-});
+      getWeatherData(defaultCity); // Updating weather data every hour for the default city
+    }, 3600000);
+  })
 
+  .catch((error) => {
+    console.error("Erreur lors du chargement de la configuration :", error);
+  });
 
-
-
-function getWeatherData(cityValue) {
-  let url = baseUrl + "&q=" + cityValue + "&aqi=no";
+function getWeatherData(defaultCity) {
+  let url = baseUrl + "&q=" + defaultCity + "&aqi=no";
+  console.log(defaultCity);
 
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      if (data.error) {
-        alert("Ville non trouvée. Veuillez saisir une ville valide.");
-        return;
-      }
+     
       const cityName = data.location.name;
       const country = data.location.country;
       const region = data.location.region;
