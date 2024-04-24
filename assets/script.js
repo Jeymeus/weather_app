@@ -5,35 +5,35 @@ const baseUrl = "https://api.weatherapi.com/v1/current.json?key=" + apiKey;
 document.getElementById("weatherForm").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent page reload
   let cityInput = document.getElementById("city");
-  let cityValue = cityInput.value.trim(); // Supprimer les espaces avant et après la saisie
+  let cityValue = cityInput.value.trim(); // Remove leading and trailing spaces from input
 
   // Verify if city input is valid
   if (!/^[A-Za-z\s-]+$/.test(cityValue)) {
     alert(
       "Veuillez saisir uniquement des lettres (minuscules ou majuscules) pour la ville."
     );
-    return; // Stop function if invalid input
+    return;
+  } else {
+    getWeatherData(cityValue); // Call function to fetch weather data
+    setInterval(function () {
+      getWeatherData(cityValue);
+    }, 3600000); // Update weather data every hour
   }
-  getWeatherData(); // Call function to fetch weather data
-  setInterval(getWeatherData, 3600000); // Update weather data every hour
 });
 
 
 
 
-function getWeatherData() {
-  let city = document.getElementById("city").value;
-
-  let url = baseUrl + "&q=" + city + "&aqi=no";
+function getWeatherData(cityValue) {
+  let url = baseUrl + "&q=" + cityValue + "&aqi=no";
 
   fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Erreur réseau");
-      }
-      return response.json();
-    })
+    .then((response) => response.json())
     .then((data) => {
+      if (data.error) {
+        alert("Ville non trouvée. Veuillez saisir une ville valide.");
+        return;
+      }
       const cityName = data.location.name;
       const country = data.location.country;
       const region = data.location.region;
