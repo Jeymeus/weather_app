@@ -84,7 +84,7 @@ function updateRefreshTimer() {
       let hours = Math.floor(countdown / 3600);
       let minutes = Math.floor((countdown % 3600) / 60);
       let seconds = countdown % 60;
-      timerDiv.textContent = `Next update in: ${hours}h ${minutes}m ${seconds}s`;
+      timerDiv.textContent = `Prochaine mise à jour : ${hours}h ${minutes}m ${seconds}s`;
       countdown--;
     }
   }, 1000); 
