@@ -8,7 +8,7 @@ Before using the application, make sure to configure your `config.json` file wit
 
 
 {
-  "defaultCity": "Paris"
+  "defaultCity": "Bordeaux"
 }
 
 Replace "Paris" with the default city you'd like to display.
@@ -17,7 +17,7 @@ Replace "Paris" with the default city you'd like to display.
 
 Clone this repository to your local machine.
 
-git clone https://github.com/your-username/weather-app.git
+git clone https://github.com/jeymeus/weather-app.git
 
 Open the index.html file in your preferred web browser.
 
