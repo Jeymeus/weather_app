@@ -1,4 +1,6 @@
-const apiKey = "55865da6c618429f893115221242304";
+require('dotenv').config();
+
+const apiKey = process.env.API_KEY;
 const baseUrl = "https://api.weatherapi.com/v1/current.json?key=" + apiKey;
 
 
