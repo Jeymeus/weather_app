@@ -27,6 +27,8 @@ Navigate into the project directory and install dependencies in bash :
 
 "npm install"
 
-Create a .env file and use the .env.example with your indformation.
+Create a .env file , configure and replace information :
+
+API_KEY="your_api_key_here"
 
 Open the index.html file in your preferred web browser.
